@@ -24,14 +24,14 @@ resource "google_compute_network" "vpc" {
 # Routing
 ############################
 
-# resource "google_compute_route" "vpc_route_default_internet_gw" {
-#   provider         = google
-#   name             = "${var.ref_hash}-${var.name}-default-internet-gateway"
-#   dest_range       = "0.0.0.0/0"
-#   network          = google_compute_network.vpc.name
-#   next_hop_gateway = "default-internet-gateway"
-#   priority         = 1000
-# }
+resource "google_compute_route" "vpc_route_default_internet_gw" {
+  provider         = google
+  name             = "${var.ref_hash}-${var.name}-default-internet-gateway"
+  dest_range       = "0.0.0.0/0"
+  network          = google_compute_network.vpc.name
+  next_hop_gateway = "default-internet-gateway"
+  priority         = 1000
+}
 
 ############################
 # VPC private services
