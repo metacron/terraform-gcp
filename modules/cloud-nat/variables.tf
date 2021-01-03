@@ -39,7 +39,7 @@ variable "network" {
 # ---------------------------------------------------------------------------------------------------------------------
 
 variable "subnetworks" {
-  description = "Subnetwork object list with 'self_link' attribute to allow use nat."
+  description = "Subnetwork 'self_link' list to allow use nat."
   default     = []
   type        = list(any)
 }
