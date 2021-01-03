@@ -4,6 +4,10 @@ resource "google_compute_router" "vpc_router" {
   project = var.project
   region  = var.region
   network = var.network
+
+  bgp {
+    asn = 64514
+  }
 }
 
 
