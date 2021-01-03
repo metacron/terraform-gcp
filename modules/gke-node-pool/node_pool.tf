@@ -1,7 +1,7 @@
 resource "google_container_node_pool" "node_pool" {
   provider = google-beta
 
-  name     = "${var.ref_hash}-${var.cluster_name}-${var.name}"
+  name     = var.name
   location = var.location
   cluster  = var.cluster_name
 
