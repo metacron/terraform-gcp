@@ -16,7 +16,7 @@ output "subnetwork_name" {
 output "subnetwork_cidr_blocks" {
   value = concat(
     [google_compute_subnetwork.vpc_subnetwork.ip_cidr_range],
-    [for range in var.secondary_ranges : range["cidr"]]
+    [for range in var.secondary_ranges : range["cidr_block"]]
   )
 }
 
