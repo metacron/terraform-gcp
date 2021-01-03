@@ -16,7 +16,7 @@ resource "google_compute_subnetwork" "vpc_subnetwork" {
 
   dynamic "secondary_ip_range" {
 
-    for_each = var.secondary_ranges == null ? [] : { for range in var.secondary_ranges : range["name"] => range }
+    for_each = var.secondary_ranges == null ? {} : { for range in var.secondary_ranges : range["name"] => range }
 
     content {
 
