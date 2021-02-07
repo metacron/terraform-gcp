@@ -20,12 +20,14 @@ locals {
     })
   }
 
-  kubeconfig = templatefile("${path.module}/config.tpl", {
+  kubeconfig_vars = {
     auth                   = trimspace(lookup(local.auth_types, var.auth_type))
     cluster_ca_certificate = data.google_container_cluster.cluster.master_auth.0.cluster_ca_certificate
     endpoint               = data.google_container_cluster.cluster.endpoint
     suffix                 = "${data.google_container_cluster.cluster.project}_${coalesce(var.region, var.zone)}_${data.google_container_cluster.cluster.name}"
-  })
+  }
+
+  kubeconfig = templatefile("${path.module}/config.tpl", local.kubeconfig_vars)
 }
 
 resource "local_file" "kubeconfig" {

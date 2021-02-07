@@ -1,11 +1,11 @@
 output "context" {
   description = "The name of the current Kube config context."
-  value       = "gke_${data.template_file.kubeconfig.vars.suffix}"
+  value       = "gke_${local.kubeconfig_vars.suffix}"
 }
 
 output "endpoint" {
   description = "The endpoint of the Kube API server."
-  value       = "${data.template_file.kubeconfig.vars.endpoint}"
+  value       = "${local.kubeconfig_vars.endpoint}"
 }
 
 output "kubeconfig" {
