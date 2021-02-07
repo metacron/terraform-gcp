@@ -29,6 +29,6 @@ locals {
 }
 
 resource "local_file" "kubeconfig" {
-  content  = data.template_file.kubeconfig.rendered
+  content  = local.kubeconfig
   filename = var.kubeconfig
 }
