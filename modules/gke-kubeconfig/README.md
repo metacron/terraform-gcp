@@ -16,7 +16,7 @@ module "kubeconfig" {
   gcloud_path       = "/usr/bin/gcloud"
   kubeconfig        = "/tmp/config.yml"
   name              = "my-cluster"
-  zone              = "us-east1-a"
+  location              = "us-east1-a"
 }
 ```
 
@@ -56,17 +56,9 @@ Type: `string`
 
 Default: `"gcloud"`
 
-### region
+### location
 
-Description: The region this cluster has been created in.
-
-Type: `string`
-
-Default: `""`
-
-### zone
-
-Description: The zone this cluster has been created in.
+Description: The location this cluster has been created in.
 
 Type: `string`
 
